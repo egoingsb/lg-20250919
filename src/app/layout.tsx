@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./globals.css";
+import { Control } from "@/components/control";
 
 export default async function RootLayout({
     children,
@@ -31,12 +32,7 @@ export default async function RootLayout({
                     <li>
                         <Link href="/create">Create</Link>
                     </li>
-                    <li>
-                        <Link href="/update/1">Update</Link>
-                    </li>
-                    <li>
-                        <button>Delete</button>
-                    </li>
+                    <Control />
                 </ul>
             </body>
         </html>
