@@ -12,7 +12,7 @@ export function Control() {
     return (
         <>
             <li>
-                <Link href="/update/1">Update</Link>
+                <Link href={`/update/${id}`}>Update</Link>
             </li>
             <li>
                 <button
