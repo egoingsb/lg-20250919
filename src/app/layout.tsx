@@ -6,6 +6,8 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const resp = await fetch("http://localhost:9999/topics");
+    const topics = await resp.json();
     return (
         <html>
             <body>
@@ -14,15 +16,15 @@ export default async function RootLayout({
                 </h1>
                 <input type="text" placeholder="검색" />
                 <ul>
-                    <li>
-                        <Link href="/read/1">html</Link>
-                    </li>
-                    <li>
-                        <Link href="/read/2">css</Link>
-                    </li>
-                    <li>
-                        <Link href="/read/3">javascript</Link>
-                    </li>
+                    {topics.map((item: { id: number; title: string }) => {
+                        return (
+                            <li key={item.id}>
+                                <Link href={`/read/${item.id}`}>
+                                    {item.title}
+                                </Link>
+                            </li>
+                        );
+                    })}
                 </ul>
                 {children}
                 <ul>

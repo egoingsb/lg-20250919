@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "eslint"
+        "lint": "eslint",
+        "server": "npx json-server@0.17.4 --port 9999 db.json --watch"
     },
     "dependencies": {
         "react": "19.1.0",
